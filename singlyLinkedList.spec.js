@@ -121,18 +121,18 @@ describe("#set", function () {
 describe("#_get", function () {
   it("finds a node and returns its value ", function () {
     singlyLinkedList.push(5).push(10).push(15).push(20);
-    expect(singlyLinkedList.get(0)).to.equal(5);
-    expect(singlyLinkedList.get(1)).to.equal(10);
-    expect(singlyLinkedList.get(2)).to.equal(15);
-    expect(singlyLinkedList.get(3)).to.equal(20);
-    expect(singlyLinkedList.get(4)).to.equal(null);
+    expect(singlyLinkedList._get(0)).to.equal(5);
+    expect(singlyLinkedList._get(1)).to.equal(10);
+    expect(singlyLinkedList._get(2)).to.equal(15);
+    expect(singlyLinkedList._get(3)).to.equal(20);
+    expect(singlyLinkedList._get(4)).to.equal(null);
   });
 });
 
 describe("#_insert", function () {
   it("inserts a node and correct adjusts the next properties of other nodes", function () {
     singlyLinkedList.push(5).push(10).push(15).push(20);
-    singlyLinkedList.insert(2, 12);
+    singlyLinkedList._insert(2, 12);
     expect(singlyLinkedList.length).to.equal(5);
     expect(singlyLinkedList.head.val).to.equal(5);
     expect(singlyLinkedList.head.next.val).to.equal(10);
