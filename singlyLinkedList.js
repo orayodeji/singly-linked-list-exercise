@@ -75,7 +75,6 @@ class SinglyLinkedList{
         this.head = newNode;
     }
     this.length++;
-
     return this;
  }
 
@@ -108,7 +107,7 @@ class SinglyLinkedList{
     if(index === this.length) return !!this.push(val)
 
     let newNode = new Node(val);
-    let prevNode = this.get(index - 1);
+    let prevNode = this._get(index - 1);
     let temp = prevNode.next;
     prevNode.next = newNode
     newNode.next = temp;
@@ -128,6 +127,21 @@ class SinglyLinkedList{
     this.length --
     return toBeRemovedNode;
  }
+
+ reverse(){
+    var node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+    var next;
+    var prev = null;
+    for(var i = 0; i < this.length; i++){
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
+    return this;
+  }
 
 }
 
